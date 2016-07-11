@@ -1,6 +1,6 @@
 # 关于这个博客主题
 
-感谢主题的原作者[https://github.com/Gaohaoyang](https://github.com/Gaohaoyang)
+**感谢主题的原作者[https://github.com/Gaohaoyang](https://github.com/Gaohaoyang)**
 
 **博客访问地址：[http://strange-jiong.github.io/](http://strange-jiong.github.io/)**。若您喜欢这个新的博客主题，请给我个star以示鼓励吧，欢迎大家使用。
 
@@ -56,14 +56,13 @@
 ### 归档页 Archives
 
 按照年份归档文章。
-
 ### 分类页 Categories
 
 按照文章的分类，显示文章。
 
 ### 标签页 Tags
 
-按照文章的标签显示文章。
+按照文章的标签显示文章
 
 ### 收藏页 Collections
 
@@ -267,7 +266,7 @@ excerpt_separator: "\n\n\n\n"
 本地执行
 
 ```
-jekyll s
+jekyll serve
 ```
 
 显示
@@ -299,7 +298,7 @@ Configuration file: E:/GitWorkSpace/blog/_config.yml
 
 ## 捐助 donate
 
-您也可以捐助我喝杯咖啡！感谢！
+您也可以捐助我喝杯白开水！感谢！
 
 支付宝
 

@@ -1,8 +1,8 @@
 # 关于这个博客主题
 
-随着 jekyll 的版本升级，同时我也想重构我的旧版博客主题，因此在这个月对博客进行了重构加改版，这个仓库存放我的新博客，并且我也会一直使用这个主题。目前基本改版完成，后续可能还会有些细节上的修补。
+**感谢主题的原作者[https://github.com/Gaohaoyang](https://github.com/Gaohaoyang)**
 
-**博客访问地址：[http://gaohaoyang.github.io/](http://gaohaoyang.github.io/)**。若您喜欢这个新的博客主题，请给我个star以示鼓励吧，欢迎大家使用。
+**博客访问地址：[http://strange-jiong.github.io/](http://strange-jiong.github.io/)**。若您喜欢这个新的博客主题，请给我个star以示鼓励吧，欢迎大家使用。
 
 ## 目录
 
@@ -56,14 +56,13 @@
 ### 归档页 Archives
 
 按照年份归档文章。
-
 ### 分类页 Categories
 
 按照文章的分类，显示文章。
 
 ### 标签页 Tags
 
-按照文章的标签显示文章。
+按照文章的标签显示文章
 
 ### 收藏页 Collections
 
@@ -267,7 +266,7 @@ excerpt_separator: "\n\n\n\n"
 本地执行
 
 ```
-jekyll s
+jekyll serve
 ```
 
 显示
@@ -299,7 +298,7 @@ Configuration file: E:/GitWorkSpace/blog/_config.yml
 
 ## 捐助 donate
 
-您也可以捐助我喝杯咖啡！感谢！
+您也可以捐助我喝杯白开水！感谢！
 
 支付宝
 
