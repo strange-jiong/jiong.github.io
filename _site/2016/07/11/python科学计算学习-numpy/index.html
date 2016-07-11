@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>python科学计算学习：numpy</title>
+    <meta name="description" content="毕设的程序设计中使用了python来处理数据，主要使用的是numpy包，网上大部分对numpy进行介绍的教程比较老旧，想要使用的功能不太容易找到。因此，写这篇文章来对现有的一些资源就行整理，当然想要更全面的了解numpy的使用还是从访问官方手册开始。">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://strange-jiong.github.io/2016/07/11/python%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%AD%A6%E4%B9%A0-numpy/">
+    <link rel="alternate" type="application/rss+xml" title="Jiong" href="http://strange-jiong.github.io /feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?f672bb9e5466efa3e26b41a5a26ae713";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">Jiong</a>
+        <small>Information Security</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>python科学计算学习：numpy</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2016-07-11
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#pyhton" title="Category: pyhton" rel="category">pyhton</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#python" title="Tag: python" rel="tag">python</a-->
+        <a href="/tag/#python" title="Tag: python" rel="tag">python</a>&nbsp;
+    
+        <!--a href="/tag/#numpy" title="Tag: numpy" rel="tag">numpy</a-->
+        <a href="/tag/#numpy" title="Tag: numpy" rel="tag">numpy</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">安装</a></li>
+  <li><a href="#section-1" id="markdown-toc-section-1">具体特性的使用</a></li>
+  <li><a href="#section-2" id="markdown-toc-section-2">参考资料</a></li>
+</ul>
+
+<p>毕设的程序设计中使用了python来处理数据，主要使用的是numpy包，网上大部分对numpy进行介绍的教程比较老旧，想要使用的功能不太容易找到。因此，写这篇文章来对现有的一些资源就行整理，当然想要更全面的了解numpy的使用还是从访问<a href="http://docs.scipy.org/doc/numpy-1.11.0/user/quickstart.html">官方手册开始</a>。</p>
+
+<h2 id="section">安装</h2>
+<p>win下
+<code class="highlighter-rouge">
+pip isntall numpy
+</code></p>
+
+<p>当然最好还是直接安装pythonxy或者Anaconda的集成包。</p>
+
+<h2 id="section-1">具体特性的使用</h2>
+<p><code class="highlighter-rouge">import  numpy as np</code></p>
+
+<ol>
+  <li>
+    <p><code class="highlighter-rouge">a=np.array([1,2,3,4])</code>由<code class="highlighter-rouge">a.shape</code>可知结果为<code class="highlighter-rouge">(4,)</code>，说明a是一个列向量
+而<code class="highlighter-rouge">a=（[[1,2,3,4]])</code>是一个横向量 ；</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">c=np.array([[1, 2, 3, 4],[4, 5, 6, 7],[7, 5, 6, 8]])</code>对c的shape属性赋值可以改变数组的形状。c.shape=4,3 就是将这个3<em>4的数组变为4</em>3的数组；结果是：<code class="highlighter-rouge">array([[1, 2, 3],[4, 4, 5],[6, 7, 7],[5, 6, 8]])</code>。当你懒得算有计算每一排有几个的时候可以这样写：<code class="highlighter-rouge">c.shape=4,-1</code>，这样的效果也是一样的，-1可以用来代替一个具体值。但是在不能均分的情况下就会报错。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">d=c.reshape</code> 是在不改变原来数据的情况下实现对数据的变形,也可以实现上述的4<em>3数组变为3</em>4的数组功能，<code class="highlighter-rouge">d=c.reshape((3,4))</code>；</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">type(c)</code>查看c的数据类型，<code class="highlighter-rouge">c.dtype</code>查看c里面的数据的类型；所以也可以在定义的时候就定下数据类型， <code class="highlighter-rouge">b=np.array([1.2,2,2,3.1],dtype=np.int)</code>，结果是<code class="highlighter-rouge">array([1, 2, 2, 3])</code>。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">arange()</code>相当于函数<code class="highlighter-rouge">range()</code>，指定开始值，终值，步长来创建一维数组。注意 不包括终值 ，例如： b=np.arange(0,1,0.2) ，结果是：array([ 0. ,  0.2,  0.4,  0.6,  0.8]) 。但是<code class="highlighter-rouge">linspace()</code>却是要包括终值的。他是指定开始值，终值，数据个数来创建一维数组。例如： <code class="highlighter-rouge">b=np.linspace(1,9,10)</code>，就是要将1到9之间均分为9份，结果是：<code class="highlighter-rouge">array([ 1.        ,  1.88888889,  2.77777778,  3.66666667,  4.55555556,5.44444444,  6.33333333,  7.22222222,  8.11111111,  9.        ])</code> 。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">zeros()</code>，<code class="highlighter-rouge">ones()</code>，<code class="highlighter-rouge">empty()</code>都是按照指定的形状生成相应的数组。例如： <code class="highlighter-rouge">np.ones((2,3))</code>，结果就是 <code class="highlighter-rouge">array([[ 1.,  1.,  1.],  [ 1.,  1.,  1.]])</code> <code class="highlighter-rouge">np.zeros((3,4),dtype=np.float)</code>，结果就是<code class="highlighter-rouge">array([[ 0.,  0.,  0.,  0.],  [ 0.,  0.,  0.,  0.],[ 0.,  0.,  0.,  0.]])</code>。唯一不同的是 <code class="highlighter-rouge">np.empty((5,2))</code>，结果为<code class="highlighter-rouge">array([[  2.43631958e-266,   0.00000000e+000], [  0.00000000e+000,   0.00000000e+000],[  0.00000000e+000,   0.00000000e+000], [  0.00000000e+000,   0.00000000e+000], [  0.00000000e+000,   0.00000000e+000]])</code>， 里面不是数据，而是给数据分配的空间地址。</p>
+  </li>
+  <li>
+    <p>切片  <code class="highlighter-rouge">a=np.arange(0,10,1)</code>，我们可以使用<code class="highlighter-rouge">a[3:7]</code>，表示<code class="highlighter-rouge">a[3]</code>到<code class="highlighter-rouge">a[6]</code>的所有元素组成的数组<code class="highlighter-rouge">array([3, 4, 5, 6])</code>；还可以在其中加上步长，但都 不包括最后一个元素。而<code class="highlighter-rouge">a[:-1]</code>,其中 含有负数就表示从后面开始；若是步长为负数，表示倒序排列 ，如：<code class="highlighter-rouge">a[7:1:-1]</code>   结果是<code class="highlighter-rouge">array([7, 6, 5, 4, 3, 2])</code>。</p>
+  </li>
+  <li>
+    <p>通过整数列表获得元素组成新的数组：<code class="highlighter-rouge">a[[1,2,2,3,5]]</code>。  取出a中的元素构成新的数组，结果是<code class="highlighter-rouge">array([1, 2, 2, 3, 5])</code>；下标也可是负数；</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">np.random.rand(10)</code>产生数值为0～1的随机数组；</p>
+  </li>
+  <li>
+    <p>记住这个例子：
+```
+»&gt; a=np.arange(0,60,10).reshape(-1,1)+np.arange(0,6)
+»&gt; a
+array([[ 0,  1,  2,  3,  4,  5],
+   [10, 11, 12, 13, 14, 15],
+   [20, 21, 22, 23, 24, 25],
+   [30, 31, 32, 33, 34, 35],
+   [40, 41, 42, 43, 44, 45],
+   [50, 51, 52, 53, 54, 55]])</p>
+  </li>
+</ol>
+
+<p>```
+其中<code class="highlighter-rouge">a[3,3:6]</code>表示第4行的第4到6列，结果是<code class="highlighter-rouge">array([33, 34, 35])</code>； 
+<code class="highlighter-rouge">a[:2]</code>表示前两列：
+<code class="highlighter-rouge">array([[ 0,  1,  2,  3,  4,  5],[10, 11, 12, 13, 14, 15]])</code>；
+而<code class="highlighter-rouge">a[:,2]</code>表示第3列，<code class="highlighter-rouge">array([ 2, 12, 22, 32, 42, 52])</code>；
+<code class="highlighter-rouge">a[1::,::2]</code>表示的是
+<code class="highlighter-rouge">array([[10, 12, 14],[20, 22, 24],[30, 32, 34],[40, 42, 44],[50, 52, 54]])</code>，即从第二行开始，选取每行中的元素，步进为2。</p>
+
+<h2 id="section-2">参考资料</h2>
+<ol>
+  <li><a href="http://blog.csdn.net/ikerpeng/article/details/19926799?utm_source=tuicool&amp;utm_medium=referral">http://blog.csdn.net/ikerpeng/article/details/19926799?utm_source=tuicool&amp;utm_medium=referral</a></li>
+</ol>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+
+        <div class="post-recent">
+    
+    <div class="pre">
+
+        <p><strong>上一篇</strong> <a href="/2016/07/07/git-clone-not-master-branch/">Git 如何 clone 非 master 分支的代码</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://strange-jiong.github.io/2016/07/11/python%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%AD%A6%E4%B9%A0-numpy/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://strange-jiong.github.io/2016/07/11/python%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%AD%A6%E4%B9%A0-numpy/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//jiong.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+            
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/strange-jiong" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>  
+            <a href="mailto:447991103@qq.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>  
+            <a href="http://weibo.com/刷牙的罗小黑" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a>  
+            <a href="https://www.zhihu.com/people/刷牙的罗小黑" title="Zhihu"><i class="iconfont">&#xe829;</i></a>      
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>
